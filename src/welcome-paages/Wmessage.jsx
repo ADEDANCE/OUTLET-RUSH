@@ -1,8 +1,14 @@
 import React from 'react'
-import {} from 'r'
-import {  useNavigate  } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+
 
 function Wmessage() {
+
+    const navigate = useNavigate();
+        const handleSignup = () => {
+          navigate("/Accounts"); 
+        };
+
   return (
     <div>
           <nav>WELCOME TO OUTLET RUSH</nav>
@@ -26,11 +32,13 @@ function Wmessage() {
                 Our goal is to bring you quality, affordability, and inspiration all in one place. Whether you're looking to upgrade your look, transform your home, or explore the latest in technology, we've got something for you.
                 </p>
                 <h1>Thank you for choosing OUTLET RUSH —where style meets innovation. We're excited to be part of your journey</h1>
-
-                <button type="submit">Sign Up</button>
+                 
+               <button onClick={handleSignup}>SignUp</button>
         </div>
     </div>
   )
 }
+
+
 
 export default Wmessage
