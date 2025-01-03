@@ -1,8 +1,8 @@
 import React from 'react'
+import { useState } from 'react';
 
 const Acconts = () => {
 
-    function SignUp() {
     const [isSeller, setIsSeller] = useState(true); 
     const [formData, setFormData] = useState({
         name: "",
@@ -23,7 +23,7 @@ const Acconts = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formData.password.lenght > 4) {
+    if (formData.password.length > 4) {
         alert("Password must be at least 4 characters");
         return;
     }
@@ -31,7 +31,7 @@ const Acconts = () => {
 
   localStorage.setItem("userData", JSON.stringify(formData));
   alert("Sign-up successful!");
-};
+
   return (
     <div>
          <h1>{isSeller ? "Sign Up as Seller" : "Sign Up as Buyer"}</h1>
