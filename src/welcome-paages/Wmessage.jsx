@@ -1,13 +1,27 @@
 import React from 'react'
+import {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 
 
 function Wmessage() {
 
+    const [isPopupVisible, setPopupVisible] = useState(false);
+
+    const handleShowPopup = () => {
+        setPopupVisible(true);
+    }
+
+    const handleHidePopup = () => {
+        setPopupVisible(false);
+    }
+
     const navigate = useNavigate();
-        const handleSignup = () => {
-          navigate("/Accounts"); 
+        const handleSignupseller = () => {
+          navigate("/SignupSeller"); 
         };
+        const handleSignupbuyer = () => {
+            navigate("/SignupBuyer")
+        }
 
   return (
     <div>
@@ -33,7 +47,18 @@ function Wmessage() {
                 </p>
                 <h1>Thank you for choosing OUTLET RUSH —where style meets innovation. We're excited to be part of your journey</h1>
                  
-               <button onClick={handleSignup}>SignUp</button>
+        </div>
+        <div>
+             <button onClick={handleShowPopup}>SignUp</button>  
+             {
+                isPopupVisible && (
+                    <div> 
+                        <p>Chose prefer account</p>
+                           <button onClick={handleSignupseller}>Sign-up as seller</button>
+                           <button onClick={handleSignupbuyer}>Sign-up as buyer</button>
+                    </div>
+                )
+             }
         </div>
     </div>
   )
