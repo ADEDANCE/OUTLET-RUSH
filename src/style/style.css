@@ -4,3 +4,54 @@ nav {
     text-align: center;
     color: white;
 }
+
+.signup-form {
+    display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
+  /* background-color: rgb(11, 7, 75); */
+}
+
+.signup-form  input,
+.signup-form button {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-inputs input {
+   align-items: center;
+   margin: 10px 30px 10px 30px;
+}
+
+
+.select-account button {
+    display: inline;
+}
+
+.CreateA-bg {
+    /* background-image: url("../images/auth-bg.png"); */
+    background-color: rgb(4, 4, 61);
+    color: #fff;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* z-index: 1; */
+}
+
+.signup-card {
+    border-radius: 25px !important;
+    padding: 50px;
+    margin: auto;
+    background-color: #ffffff !important;
+    max-width: 498px;
+    width: 100%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
