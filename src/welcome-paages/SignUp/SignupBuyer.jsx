@@ -25,7 +25,7 @@ const SignupBuyer = () => {
     last_name: "",
     email: "",
     password: "",
-    confirmPassword: "",
+    confirm_password: "",
     bvn: "",
     gender: "",
     Phone: "",
@@ -48,19 +48,21 @@ const SignupBuyer = () => {
       .oneOf([Yup.ref("password")], "Passwords do not match")
       .required("Please confirm password."),
       Phone: Yup.string()
-      .matches(
-        /^((\+234)|(0))\d{10}$/,
-        "Phone number must start with +234 or 0 and contain exactly 11 digits"
-      )
-      .length(11, "Phone number must be exactly 11 digits") 
-      .required("Phone number is required"),
+  .trim()
+  .matches(
+    /^(\+234|0)/,
+    "Phone number must start with +234 or 0"
+  )
+  .min(10, "Phone number must be at least 10 characters")
+  .max(14, "Phone number must not exceed 14 characters")
+  .required("Phone number is required"),
   });
   
 
   const handleSubmit = (values, { resetForm }) => {
     setFormData(values); // Update state with form data
     resetForm(false); // Reset the form
-    navigate("/age"); // Navigate to another page
+    navigate("/SellerProfile"); // Navigate to another page
   };
 
   const handleHomeButton = () => {
@@ -132,7 +134,7 @@ const SignupBuyer = () => {
                   </Col>
                   <Col md={6} className="mt-3">
                     <Field
-                      type="number"
+                      type="text"
                       name="Phone"
                       placeholder="Phone *"
                       className={`input-field ${
