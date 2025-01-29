@@ -3,6 +3,9 @@ nav {
     height: 70px;
     text-align: center;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .signup-form {
@@ -68,3 +71,17 @@ nav {
     color:rgb(24, 23, 23) !important;
 }
 
+
+
+.BuyerPages {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+
+}
+
+.BuyerPages > li {
+    list-style: none;
+   display: inline;
+    margin: 50px;
+}
