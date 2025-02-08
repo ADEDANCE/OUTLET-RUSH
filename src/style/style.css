@@ -91,11 +91,30 @@ nav {
     flex-direction: column;
     margin-top: 100px;
     align-items: center;
-    /* max-width: 400px; */
+    background-color: bisque;
+}
+
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;  
 }
 
 .product-list {
-    display: grid;
-    grid-template-columns: min-content;
-    grid-row: unset;
+    background-color: burlywood;
+    border: 1px #000 solid;
+    width: 200px;
+    text-align: center;
 }
+
+.Quotes {
+    list-style:circle;
+   
+}
+
+.Quotes li {
+    margin-bottom: 15px !important;
+} 
+
+
