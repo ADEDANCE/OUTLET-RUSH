@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import BuyerNav from '../NAVBARS/BuyerNav'
 import {Row,Col} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const SellerProfile = () => {
 
-  // const [proDucts,setProDucts] = useState([]);
-  // const [inputValue, setInputValue] = useState('');
+
   const [selectedFile, setSelectedFile] = useState(null);
   const [submittedData, setSubmittedData] = useState([]);
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState('');
   const [fileName, setFileName] = useState('');
   const [currency, setCurrency] = useState("NGN");
+  const [error, setError] = useState("");
   
 
 
@@ -24,33 +23,38 @@ const SellerProfile = () => {
       reader.onloadend = () => {
         setSelectedFile(reader.result); // Store Base64 instead of a blob URL
         setFileName(file.name);
+        setError('');
       };
     
     }
+
+
   };
   
 
-const handleSubmit = () => {
-  if (selectedFile && description.trim() !== "" && price.trim() !== "" && currency) {
+  const handleSubmit = () => {
+    if (!selectedFile || description.trim() === "" || price.trim() === "") {
+      setError("All fields are required!");
+      return;
+    }
+
     const newProduct = {
-        id: Date.now(),// Generate a unique ID
-        imageUrl: selectedFile,
-      // imageUrl: URL.createObjectURL(selectedFile),
+      id: Date.now(),
+      imageUrl: selectedFile,
       description,
       price,
       currency,
-     
     };
 
-    setSubmittedData(prevProducts => [...prevProducts, newProduct]);
-  
-    // Clear input fields
+    setSubmittedData((prevProducts) => [...prevProducts, newProduct]);
+
+    // Clear inputs after submitting
     setDescription("");
     setPrice("");
     setSelectedFile(null);
     setFileName("");
-  }
-};
+    setError(""); // Clear error on successful submission
+  };
 
 
 
@@ -77,10 +81,12 @@ const handleSubmit = () => {
 
   const handleDescriptionChange = (event) => {
     setDescription(event.target.value);
+    setError('');
   };
 
   const handlePrice = (event) => {
     setPrice(event.target.value);
+    setError('');
   }
 
   const handlePreferCurrency = (e) => {
@@ -94,29 +100,35 @@ const handleSubmit = () => {
       alignItems:'center',
       textAlign:'center'
     }}>
-          <BuyerNav/>
+          {/* <BuyerNav/> */}
+          {/* <SellerNav /> */}
       {/* <h1>
         You self no smalll
       </h1> */}
        <div className='container-fluid'>
           <Row>
-              <Col md={6}>
+              <Col md={6} style={{
+                backgroundColor:'ButtonFace',
+                textAlign:'left',
+                height:'80vh'
+              }}>
                     <h2>
                          Quotes to Inspire Your Investment Strategy
                     </h2>
-                    <ul>
+                    <ul className='Quotes' >
                           <li>Buy low, sell high. It’s pretty simple—until emotions come into play</li>
                           <li>To be a successful investor, you have to divorce yourself from the fears and greed of the people around you</li>
                           <li>A goal without a plan is just a wish</li>
                           <li>Do not save what is left after spending, but spend what is left after saving</li>
-                          <li></li>
-                          <li></li>
+                          {/* <li></li>
+                          <li></li> */}
                     </ul>
 
                </Col>
                <Col md={6} >
                   <div className="productInput" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                     <input type="file" id="imageInput" accept="image/*" onChange={handleAddImage} style={{ display: 'none' }} />
+                     <input type="file" id="imageInput" accept="image/*"
+                      onChange={handleAddImage} style={{ display: 'none' }} />
     
                      <label htmlFor="imageInput" style={{
                             padding: '10px 20px',
@@ -126,7 +138,7 @@ const handleSubmit = () => {
                      }}>
                            Choose Image
                      </label>
-
+                       {error && <p  style={{ color: 'red', fontSize: '14px' }}>Import Image</p>}
                      <span style={{ display: 'block', marginLeft: '10px' }}>{fileName}</span>
 
                      <textarea
@@ -135,14 +147,14 @@ const handleSubmit = () => {
                              onChange={handleDescriptionChange}
                              style={{ width: '100%', minHeight: '100px' }}
                     /> 
-
+                          {error && <p  style={{ color: 'red', fontSize: '14px' }}>Add Description</p>}
                     <input
                           type="number"
                           value={price}
                           onChange={handlePrice}
                           style={{ width: '100%' }}
                    />
-
+                         {error && <p  style={{ color: 'red', fontSize: '14px' }}>Input your Prefer Price</p>}
                    <select name="currency" value={currency} onChange={handlePreferCurrency} style={{ width: '100%' }}>
                           <option value="NGN">Naira (#)</option>
                           <option value="USD">Dollar ($)</option>
@@ -155,12 +167,6 @@ const handleSubmit = () => {
           
 
        </div>
-  
-
-
-
-          
-
 
     </div>
   )
