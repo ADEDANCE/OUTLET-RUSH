@@ -62,7 +62,7 @@ const SignupBuyer = () => {
   const handleSubmit = (values, { resetForm }) => {
     setFormData(values); // Update state with form data
     resetForm(false); // Reset the form
-    navigate("/SellerProfile"); // Navigate to another page
+    navigate("/Buyer"); // Navigate to another page
   };
 
   const handleHomeButton = () => {
