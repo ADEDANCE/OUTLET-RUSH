@@ -3,6 +3,9 @@ nav {
     height: 70px;
     text-align: center;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .signup-form {
@@ -67,4 +70,51 @@ nav {
     font-weight: 600 !important;
     color:rgb(24, 23, 23) !important;
 }
+
+
+
+.BuyerPages {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+
+}
+
+.BuyerPages > li {
+    list-style: none;
+   display: inline;
+    margin: 50px;
+}
+
+.productInput {
+    display: flex ;
+    flex-direction: column;
+    margin-top: 100px;
+    align-items: center;
+    background-color: bisque;
+}
+
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;  
+}
+
+.product-list {
+    background-color: burlywood;
+    border: 1px #000 solid;
+    width: 200px;
+    text-align: center;
+}
+
+.Quotes {
+    list-style:circle;
+   
+}
+
+.Quotes li {
+    margin-bottom: 15px !important;
+} 
+
 
