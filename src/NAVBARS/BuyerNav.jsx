@@ -7,7 +7,7 @@ const BuyerNav = () => {
     <div>
           <nav>
             <ul>
-                <Link  to={"/"} className='BuyerPages' 
+                <Link  to={"/ProductView"} className='BuyerPages' 
                    
                 >
                   <li > PRODUCTS</li> </Link>
