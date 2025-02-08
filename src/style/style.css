@@ -93,3 +93,9 @@ nav {
     align-items: center;
     /* max-width: 400px; */
 }
+
+.product-list {
+    display: grid;
+    grid-template-columns: min-content;
+    grid-row: unset;
+}
