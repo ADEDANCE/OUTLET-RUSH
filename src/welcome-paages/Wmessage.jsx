@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../NAVBARS/Navbar';
 
 
 function Wmessage() {
@@ -25,7 +26,7 @@ function Wmessage() {
 
   return (
     <div>
-          <nav>WELCOME TO OUTLET RUSH</nav>
+         <Navbar />
         <div>
               <p>
               Welcome to OUTLET RUSH, your one-stop destination for everything you need to elevate your style, enhance your living space, and stay ahead with the latest gadgets.
