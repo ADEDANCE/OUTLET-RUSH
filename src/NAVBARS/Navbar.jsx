@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
-    <div className='container-fliud Navbar' >
+    <div className='container-fliud Navbar' style={{alignContent:'center'}}  >
       <Row>
            <Col md={'8'}>
            <nav>OUTLET RUSH</nav>
