@@ -1,8 +1,32 @@
 import React from 'react'
+import {Row,Col} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
-    <div>Navbar</div>
+    <div className='container-fliud Navbar' style={{alignContent:'center'}}  >
+      <Row>
+           <Col md={'8'}>
+           <nav>OUTLET RUSH</nav>
+           </Col>
+           <Col>
+               <ul className='Navitem'>
+                    <Link to={'/Buyer/ProductPage'} style={{textDecoration:'none',color:"#fff"}}>
+                         <li  >Products</li>
+                    </Link>
+                    <Link to={'/Buyer/ProductPage'}>
+                         <li>
+                             <select name="" id="">gift card</select>
+                         </li>
+                    </Link>
+                    <Link to={'/Buyer/ProductPage'} style={{textDecoration:'none',color:"#fff"}}>
+                         <li>Log in/Sign up</li>
+                    </Link>
+               </ul>
+           </Col>
+      </Row>
+       
+    </div>
   )
 }
 

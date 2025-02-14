@@ -1,3 +1,32 @@
+// import React from 'react'
+// import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+// import Wmessage from '../welcome-paages/Wmessage';
+
+// const BuyerNav = () => {
+//   return (
+//     <div>
+//           <nav>
+//             <ul>
+//                 <Link  to={"/ProductView"} className='BuyerPages' 
+                   
+//                 >
+//                   <li > PRODUCTS</li> </Link>
+//                 <Link  to={"/"} className='BuyerPages' > <li className='BuyerPages'>CART</li></Link>
+//             </ul>
+//           </nav>
+
+//           {/* <Routes>
+//                   <Route path='/' element={<Wmessage/>} />
+//         </Routes> */}
+//     </div>
+
+   
+//   );
+// }
+
+// export default BuyerNav
+
+
 import React from 'react'
 import { Link, NavLink,Outlet } from 'react-router-dom';
 import { styled, useTheme } from '@mui/material/styles';
@@ -17,14 +46,13 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
 import DryCleaningIcon from '@mui/icons-material/DryCleaning';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 
-const Seller = () => {
-
-    
+const Buyer = () => {
+       
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -118,11 +146,10 @@ const handleDrawerClose = () => {
 
 const menuItems = [
   { text: 'Inbox', path: '.', icon: <AccountCircleIcon /> },
-    { text: 'Starred', path: 'ManageOrder', icon: <MailIcon /> },
-    { text: 'Send email', path: 'ProductView', icon: <DryCleaningIcon /> },
-    { text: 'Drafts', path: 'Earnings', icon: <AccountBalanceIcon /> },
+    { text: 'Starred', path: 'CartPage', icon: <AddShoppingCartIcon /> },
+    { text: 'Send email', path: 'OrderHistory', icon: <WorkHistoryIcon /> },
+    { text: 'Drafts', path: 'ProductPage', icon: <DryCleaningIcon  /> },
   ];
-
   return (
     <div>
     <Box sx={{ display: 'flex' }}>
@@ -194,7 +221,7 @@ const menuItems = [
                         },
                   ]}
                 >
-                 {item.icon}
+                  {item.icon}
                 </ListItemIcon>
                 <ListItemText
                   primary={item.text}
@@ -275,7 +302,7 @@ const menuItems = [
       </Box>
     </Box>
     </div>
-  );
+  )
 }
 
-export default Seller
+export default Buyer

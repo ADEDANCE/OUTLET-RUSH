@@ -1,12 +1,37 @@
-nav {
+.Navbar {
     background-color : blue;
     height: 70px;
-    text-align: center;
     color: white;
-    display: flex;
-    justify-content: center;
+    align-items: center !important;
+}
+
+nav {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .Navitem li {
+    cursor: pointer;
+  }  
+
+  .Navitem li:hover {
+    color: #ffcc00; 
+  }
+
+.Navitem {
+    list-style: none;
+    gap: 50px;
+    display: inline-flex;
     align-items: center;
 }
+
+select {
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
 
 .signup-form {
     display: flex; 
@@ -117,4 +142,61 @@ nav {
     margin-bottom: 15px !important;
 } 
 
+/* .About {
+    
+    text-align: center;
+    padding: 40px;
+    
+} */
+.About {
+    padding: 40px;
+    background-color: blue;
+    color: #ffffff;
+    /* background-color: #f9f9f9; */
+    text-align: center;
+    margin-top: 100px;
+  }
+  
+  
+  .About h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .About a {
+    background-color: #ff6600;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .About a:hover {
+    text-decoration: underline;
+  }
+  
+  .About p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  .About .row {
+    margin-top: 30px;
+  }
+  
+  .About button {
+    background-color: #ff6600;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .About button:hover {
+    background-color: #e65c00;
+  }
+  
 
